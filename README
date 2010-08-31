@@ -1,0 +1,5 @@
+This is a communication platform utilizing presence and geographic positioning info, for use in a smaller company or organization.
+
+Technical documentation is available in the folder documentation.
+
+The platform consists of two parts, an Android application for mobile use, and a Ruby on Rails based web interface and synchronizing part. This code is found in the relevant folders under at.attentec.com.
