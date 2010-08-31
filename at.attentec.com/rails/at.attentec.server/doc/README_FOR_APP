@@ -1,0 +1,40 @@
+  =====¨                                                _======
+====                                                   ¨._.¨  ===
+==          Documatation for @Attentec rails server              ==
+====                                                            ==
+ ¨====                                                      _===¨
+    ¨¨=======================================================
+
+
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+Setup
+=====
+
+1. Setup database settings in config/database.yml
+2. To get the newest database structure run:
+    rake db:migrate 
+
+3. Set the version of your rails in config/environment.rb
+
+Debug 
+=====
+
+To be able to debug an object, like var_dump() in PHP, the function var_dump is defined in applications_helper.rb
+This works well in both testCases and templates
+
+Ex:
+var_dump @user
+<%= var_dump @user %>
+
+You can also use p to get debug output into the server console.
+
+Ex:
+p @user
+
+To show error messages from an ActiveRecord object during for example tests, you can use p_errors
+
+Ex:
+p_errors @user

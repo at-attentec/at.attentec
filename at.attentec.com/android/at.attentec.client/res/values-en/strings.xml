@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">\@Attentec</string>
+    <string name="close_to_you">Close to you</string>
+    <string name="contact_list">Contacts</string>
+    <string name="login">Log in</string>
+    <string name="scan">Read key</string>
+    <string name="username">User name:</string>
+    <string name="phone_key">Phone key:</string>
+    <string name="no_data">Data not available</string>
+    <string name="phone">Phone:</string>
+    <string name="pick_contact_action">Pick how to contact:</string>
+    <string name="call">Call</string>
+    <string name="send_message">Send SMS</string>
+    <string name="send_email">Send Email</string>
+    <string name="navigate_to">Navigate to</string>
+    <string name="no_action_available">No contact data available</string>
+    <string name="logging_in">Logging in</string>
+    <string name="contacting_server">Contacting server</string>
+    <string name="contact">Contact</string>
+    <string name="no_contacts">No contacts yet</string>
+    <string name="service_started">Contacts and locations are updated</string>
+    <string name="service_started_no_position">Contacts and others locations are updated</string>
+    <string name="service_label">\@Attentec</string>
+    <string name="menu_order_by_contacted_at">Sort by contacted at</string>
+    <string name="menu_order_by_first_name">Sort by first name</string>
+	<string name="menu_order_by_last_name">Sort by last name</string>
+	<string name="menu_order_by_distance">Sort by distance</string>
+    <string name="menu_start_service">Start updates</string>
+    <string name="menu_stop_service">Stop updates</string>
+    <string name="menu_show_preferences">Preferences</string>
+    <string name="menu_contact_radius">Radius</string>
+    <string name="press_back_to_close">Press back to close</string>
+    <string name="login_error_starting_without_service">Error on logging in, starting without updates</string>
+    <string name="login_fail">Incorrect username or phone key</string>
+    <string name="scan_fail">Requires the application \"Barcode scanner\"</string>
+    <string name="ACCOUNT_TYPE">Attentec</string>
+    
+    <!-- Preferences/Settings strings -->
+    <string name="settings_summary">Settings for the application @Attentec</string>
+    <string name="settings_header">Preferences</string>
+    <string name="settings_header_server">Server</string>
+    <string name="settings_header_sync">Updates</string>
+    <string name="settings_header_position">Location</string>
+    <string name="settings_contact_sync_interval">Fetch contacts</string>
+    <string name="settings_contact_sync_interval_text">interval in minutes</string>
+	<string name="settings_locations_and_status_update_interval">Update locations and status</string>
+    <string name="settings_locations_update_enabled">Sending location</string>
+    <string name="settings_locations_update_disabled">Not sending location</string>
+    <string name="settings_locations_update_interval_text">interval in minutes</string>
+	<string name="settings_locations_update_own_interval">Update own location</string>
+    <string name="settings_locations_update_own_interval_text">interval in minutes</string>
+	<string name="settings_locations_update_start_time">Send location after</string>
+    <string name="settings_locations_update_start_time_text">Time of day</string>
+	<string name="settings_locations_update_end_time">Send location until</string>
+    <string name="settings_locations_update_end_time_text">Time of day</string>
+    <string name="settings_gps_timeout">Timeout for GPS-fix</string>
+    <string name="settings_gps_timeout_text">seconds</string>
+    <string name="settings_gps_distance">Accuracy requirement for GPS</string>
+    <string name="settings_gps_distance_text">meters</string>
+    <string name="settings_server_urlbase">URL to server</string>
+    <string name="settings_server_urlbase_text">Normally not changed</string>
+
+    
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    
+    <string name="no_status">No status</string>
+    <string name="no_custom_status">No personal status</string>
+    <string name="my_status">My status:</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_online">Online</string>
+    <string name="status_do_not_disturb">Do not disturb</string>
+    <string name="status_not_available">Not available</string>
+    <string name="status_away">Away</string>
+    <string name="status_invisible">Invisible</string>
+
+    <string name="status_disabled">Start updates to enable setting status</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="status_custom_message_dialog_title">Input status message</string>
+    <!-- # is replaced by the number that limits the number of chars -->
+    <string name="status_custom_message_dialog_message">Max # characters.</string>
+    
+    <string name="view_detailed_info">Show detailed info</string>
+    <string name="email">Email:</string>
+    <string name="degree">Degree:</string>
+    <string name="title">Title:</string>
+    <string name="linkedin">Linkedin:</string>
+    <string name="client">Client:</string>
+    <string name="address">Address:</string>
+    
+    <string name="radius">Distance: </string>
+    <string name="infinity">∞</string>
+    <string name="kilometers">km</string>
+    <string name="meters">m</string>
+    <string name="select_wider_radius">No contacts in this radius.</string>
+    <string name="no_own_location">Don\'t know where we are, so distances may be incorrect.</string>
+    
+</resources>

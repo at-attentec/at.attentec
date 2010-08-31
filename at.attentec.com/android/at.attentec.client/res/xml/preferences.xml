@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory
+		android:title="@string/settings_header_sync">
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_contact_sync_interval_text"
+			android:defaultValue="600"
+			android:numeric="integer"
+			android:title="@string/settings_contact_sync_interval"
+			android:key="@string/settings_contact_sync_interval_key" />
+
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_locations_update_interval_text"
+			android:defaultValue="3"
+			android:numeric="integer"
+			android:title="@string/settings_locations_and_status_update_interval"
+			android:key="@string/settings_locations_update_interval_key" />
+
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_locations_update_own_interval_text"
+			android:defaultValue="10"
+			android:numeric="integer"
+			android:title="@string/settings_locations_update_own_interval"
+			android:key="@string/settings_locations_update_own_interval_key" />
+
+		<TimePickerPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_locations_update_start_time_text"
+			android:defaultValue="08:00"
+			android:title="@string/settings_locations_update_start_time"
+			android:key="@string/settings_locations_update_start_time_key" />
+
+		<TimePickerPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_locations_update_end_time_text"
+			android:defaultValue="17:00"
+			android:title="@string/settings_locations_update_end_time"
+			android:key="@string/settings_locations_update_end_time_key" />
+
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/settings_header_position">
+		<CheckBoxPreference
+			android:summaryOff="@string/settings_locations_update_disabled"
+			android:summaryOn="@string/settings_locations_update_enabled"
+			android:defaultValue="true"
+			android:title="@string/settings_locations_update_enabled"
+			android:key="locations_update_enabled" />
+
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_gps_timeout_text"
+			android:defaultValue="60"
+			android:numeric="integer"
+			android:title="@string/settings_gps_timeout"
+			android:key="@string/settings_gps_timeout_key" />
+
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_gps_distance_text"
+			android:defaultValue="50"
+			android:numeric="integer"
+			android:title="@string/settings_gps_distance"
+			android:key="@string/settings_gps_distance_key" />
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:title="@string/settings_header_server">
+		<EditTextPreference
+			android:enabled="true"
+			android:persistent="true"
+			android:summary="@string/settings_server_urlbase_text"
+			android:defaultValue=""
+			android:inputType="textFilter"
+			android:title="@string/settings_server_urlbase"
+			android:key="@string/settings_server_urlbase_key" />
+	</PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:background="#FFFFFFFF"
+	android:layout_height="fill_parent">
+
+	<ImageView
+		android:scaleType="fitStart"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:src="@drawable/logo_background" />
+	<TextView
+		android:id="@+id/welcome_text"
+		android:text="@string/login"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:textColor="#FF444444"
+		android:padding="10dp"
+		android:textSize="20sp"
+		android:textStyle="bold" />
+
+
+	<TextView
+		android:id="@+id/username_text"
+		android:text="@string/username"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/welcome_text"
+		android:textColor="#FF000000" />
+	<EditText
+		android:id="@+id/txt_username"
+		android:layout_height="wrap_content"
+		android:layout_width="250px"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@+id/username_text"
+		android:singleLine="true"
+		android:inputType="textFilter"
+		android:background="#22000000" />
+	<TextView
+		android:id="@+id/password_text"
+		android:text="@string/phone_key"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/txt_username"
+		android:textColor="#FF000000" />
+
+	<EditText
+		android:id="@+id/txt_password"
+		android:password="true"
+		android:layout_height="wrap_content"
+		android:layout_width="250px"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@+id/password_text"
+		android:singleLine="true"
+		android:background="#22000000"
+		android:layout_marginBottom="10dp" />
+	<Button
+		android:id="@+id/scan_button"
+		android:text="@string/scan"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/txt_password" />
+
+	<Button
+		android:id="@+id/login_button"
+		android:text="@string/login"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@+id/txt_password" />
+	<TextView
+		android:id="@+id/close_text"
+		android:text="@string/press_back_to_close"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/login_button"
+		android:paddingTop="20dp"
+		android:textColor="#FF000000" />
+
+
+</RelativeLayout>

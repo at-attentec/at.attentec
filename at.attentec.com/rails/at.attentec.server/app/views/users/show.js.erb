@@ -1,0 +1,27 @@
+<% 
+#
+# Copyright (c) 2010 Attentec AB, http://www.attentec.se
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+-%>
+var element = $("#show_<%= @user.id %>").after(
+	"<tr id='details_<%= @user.id %>'>"+
+	"</tr>");
+element.next().hide().html(	"<td class='user_details' colspan='7'>"+
+	"<table>"+
+	"<%= escape_javascript render :partial => 'show_additional_info'  %>"+
+	"<%= escape_javascript render :partial => 'show_map_info' if @user.location_fresh?%>"+
+	"</table>"+
+	"<%= escape_javascript render :partial => 'gmap_with_marker', :locals => {:width => 400}  if @user.location_fresh? %>"+
+	"</td>").fadeIn('slow')

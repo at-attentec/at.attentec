@@ -1,0 +1,20 @@
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android" 
+     android:layout_width="fill_parent" 
+     android:layout_height="wrap_content" 
+     android:gravity="center_vertical"
+     android:orientation="horizontal"> 
+        <ImageView
+           android:id="@+id/menuicon"
+           android:layout_width="40sp"
+           android:padding="7sp"
+           android:layout_height="wrap_content"
+       /> 
+       <TextView 
+           android:id="@+id/menutext" 
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content" 
+           android:textSize="22sp"
+           android:padding="7sp"
+           android:textColor = "#FF000000"
+       /> 
+   </LinearLayout> 

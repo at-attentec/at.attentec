@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="api_key">put-your-google-api-key-here</string>
+	
+	
+	
+	
+
+	<string name="settings_contact_sync_interval_key">contact_sync_interval</string>
+	<string name="settings_locations_update_enabled_key">locations_update_enabled</string>
+	<string name="settings_locations_update_interval_key">locations_update_interval</string>
+	<string name="settings_locations_update_own_interval_key">locations_update_own_interval</string>
+	<string name="settings_locations_update_start_time_key">locations_update_start_time</string>
+	<string name="settings_locations_update_end_time_key">locations_update_end_time</string>
+	<string name="settings_gps_timeout_key">gps_update_timeout</string>
+	<string name="settings_gps_distance_key">gps_update_distance</string>
+	<string name="settings_server_urlbase_key">server_urlbase</string>
+
+</resources>

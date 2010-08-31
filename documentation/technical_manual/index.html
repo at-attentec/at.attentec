@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!--
+Copyright (c) 2010 Attentec AB, http://www.attentec.se
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>@Attentec, Technical manual</title>
+  <link href="scaffold.css" media="screen" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <style type="text/css">
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <div id="header">
+      <a href="#"><img alt="Logo" style="border: 0px" src="images/headerlogo.png" title="Logo" /></a><br/>
+    </div>
+    <a id="attentec"></a>
+    <h1>@Attentec, Technical manual</h1>
+		<ol>
+			<li>
+				<a href="#attentec">@Attentec, Technical manual</a>
+				<ol>
+					<li>
+						<a href="#overview">Overview</a>
+						<ol>
+							<li><a href="#about-document">About this document</a></li>
+							<li><a href="#overview-server">Server</a></li>
+							<li><a href="#overview-android">Android</a></li>
+							<li><a href="#overview-interface">Interface</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="#rails">Server - Ruby on Rails</a>
+						<ol>
+							<li><a href="#rails-function">Function</a></li>
+							<li><a href="#rails-getting">Getting Started</a></li>
+							<li><a href="#rails-code">Code Structure</a></li>
+							<li><a href="#rails-deploy">Deployment to live server</a></li>
+							<li><a href="#rails-thumbs">Thumbnails</a></li>
+							<li><a href="#rails-debugging">Debugging</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="#android">Android</a>
+						<ol>
+							<li><a href="#android-function">Function</a></li>
+							<li><a href="#android-getting">Getting started</a></li>
+							<li><a href="#android-code">Code Structure</a></li>
+							<li><a href="#deployment">Deployment</a></li>
+							<li><a href="#android-debugging">Debugging</a></li>
+						</ol>
+					</li>
+					<li>
+						<a href="#interface">Interface</a>
+					</li>
+					<li>
+						<a href="#misc">Miscellaneous</a>
+						<ol>
+							<li><a href="#locale">Locale</a></li>
+							<li><a href="#virtual">Working with Ubuntu in Virtual Box</a></li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+		</ol>
+    <a id="overview"></a>
+    <h2>Overview</h2>
+    <br class="clear"/>
+    <p>
+      This is a presence app for enabling effective communication in a company or group where the users often are on assignments "in the field".
+      It consists of two parts, a server part and an android app part.
+    </p>
+    <a id="about-document"></a>
+    <h3>About this document</h3>
+    <p>
+      This document is intended as an introduction and reference for any people working with this project in the future. It first gives an overview of the whole system (this chapter). Then it goes into detail for the Server part of the system, then the Android part, and lastly it gives a detailed specification of the communication between them.
+    </p>
+    <p>
+      The sections are partitioned into the following main parts:
+    </p>
+    <ul>
+      <li>Function: What does the system do</li>
+      <li>Getting started: Steps to take to get started developing</li>
+      <li>Code structure: How is the code itself structured</li>
+      <li>Deployment: What steps to take for deploying the system to a live environment</li>
+    </ul>
+    <p class="image">
+      <img alt="System overview" src="images/system_overview.png" /><br />
+      Figure 1. System overview
+    </p>
+    <a id="overview-server"></a>
+    <h3>Server</h3>
+    <p>The server, running on Ruby on Rails, keeps a central database of the users with contact info, their current location, and statuses. It has a web interface for editing this info.</p>
+    <a id="overview-android"></a>
+    <h3>Android application</h3>
+    <p>The android application shows a list of all the users and their statuses, as well as their current location on a map.</p>
+    <a id="overview-interface"></a>
+    <h3>Interface</h3>
+    <p>The server and the android application communicate via HTTP requests with POST data, formatted in JSON.</p>
+
+
+    <a id="rails"></a>
+    <h2>Server - Ruby on Rails</h2>
+    <a id="rails-function"></a>
+    <h3>Function</h3>
+    <p>
+      The server part runs Ruby on Rails and is responsible for synchronizing the mobile units/android phones. The information to be synchronized is offered by keeping a central database with roughly the following info about all contacts:
+    </p>
+    <ul>
+      <li>Name, address and any other contact details</li>
+      <li>Linkedin profile (url), title, degree and the like</li>
+      <li>Photo, and when it was updated</li>
+      <li>Status, both predefined statuses like online/busy/away... and a custom text version</li>
+      <li>A timestamp of when the user/phone last connected to the server, used for determining someone as "offline" after a timeout</li>
+      <li>Location</li>
+    </ul>
+    <p>
+      The data, except location and status, can be edited from a web interface.
+    </p>
+    <p>
+      In order to keep all the phones updated they poll the server for data at intervals. All communication between the server and the phones consists of JSON data. The phones also upload their users status and location (if enabled) to the server.
+    </p>
+
+    <a id="rails-getting"></a>
+    <h3>Getting started</h3>
+    <p>
+      Rails development is easiest to do on Linux (or similar). To get it started on a debian based distribution (ubuntu) run the following commands:
+    </p>
+    <pre>
+$ sudo apt-get install rubygems libsqlite3-dev build-essential ruby-dev libopenssl-ruby
+$ sudo gem install rails
+$ sudo gem install sqlite3-ruby
+$ sudo gem install mongrel
+$ sudo gem install rqrcode
+$ sudo gem install vpim</pre>
+    <p>
+      If you are using RedHat or similar, instead of the first row, do:
+    </p>
+    <pre>
+# yum install rubygems ruby-devel make gcc sqlite-devel</pre>
+    <p>
+      Also make sure that ImageMagick is installed, as it is used for resizing uploaded photos.
+    </p>
+    <p>
+      A good thing to check is that the rails version defined in at.attentec.com/rails/at.attentec.server/config/environment.rb is the same one you have installed.
+    </p>
+    <p>
+      The first time you run the applcation you should run the following from the rails-folder (at.attentec.server) to create a session secret and to update the database to newest version:
+    </p>
+    <pre>
+$ rake generate_session_store
+$ rake db:migrate</pre>
+    <p>
+      To run the server, go to the folder at.attentec.com/rails/at.attentec.server/, and run the following command:
+    </p>
+    <pre>
+$ script/server mongrel</pre>
+    <p>
+      From the start there is one user with username admin and password administrator. Please log in and change this password as soon as possible.
+    </p>
+    <a id="rails-code"></a>
+    <h3>Code structure</h3>
+    <p>
+      The code follows the structure of Rails. Everything is based around the model <i>User</i>, with the accompanying controller and views. There is also an ApplicationController for handling sessions for the web interface. There is no session handling for the Android application. Instead the authentication (username and phone key) is sent on every request.
+    </p>
+    <p>
+      There is a configuration file for a few things in config/initializers/at.attentec.settings.rb. There it is possible to set if it should be possible for everyone who wants to to register a new user. One can also disable the complete business card feature globally with a setting in this file.
+    </p>
+    <h4>QR codes</h4>
+    <p>
+      In a few places, QR codes for scanning with a mobile phone are created. They all use the <a href="http://code.google.com/apis/chart/docs/gallery/qr_codes.html">Google Chart API</a>. Follow the link for documentation.
+    </p>
+    <p>
+      There is also an action to create the QR codes for the business card links in an svg format. To do this, visit the following url:
+    </p>
+<pre>
+  http://yourserver.com/users/businesscard_svg_qr/id?parameters</pre>
+    <p>
+      where id is the id of a user, and parameters can be any of the following:</p>
+    <table>
+      <tr>
+	<td>padding</td><td>Number of pixels padding around the code itself</td>
+      </tr>
+      <tr>
+	<td>pixel_size</td><td>Width of one square in the qr code</td>
+      </tr>
+      <tr>
+	<td>color</td><td>CSS color (for example 900028 or red) for the foreground</td>
+      </tr>
+      <tr>
+	<td>background_color</td><td>CSS color for the background</td>
+      </tr>
+      <tr>
+	<td>crisp_edges</td><td>"true" for using <i>shape-rendering: crispEdges</i>. This prevents antialiasing of the squares in the code</td>	
+      </tr>
+    </table>
+    <p>
+      To find the id of a user, log in to the web interface, and click on show on the user in question. The id will be the number in the url of the page.<br />
+      So an example url would be: <a href="http://yourserver.com/users/businesscard_svg_qr/114?padding=30&pixel_size=3&background_color=0F0F0F">http://yourserver.com/users/businesscard_svg_qr/114?padding=30&pixel_size=3&background_color=0F0F0F</a>.
+    </p>
+    <a id="rails-deploy"></a>
+    <h3>Deployment to live server</h3>
+    <p>
+      To do deployment manually:
+      1. Move the whole at.attentec.server folder to the live server.
+      2. Inside the folder, run
+    </p>
+    <pre>
+$ rake db:migrate RAILS_ENV=production
+$ script/server mongrel -d -e production</pre>
+    <p>
+      What this deployment will give you is a server running on port 3000. To get it to answer calls from another port (for example 80, or any other port you fancy), you can either run mongrel with the -p option:
+    </p>
+    <pre>
+$ script/server mongrel -p 80 -d -e production</pre>
+    <p>
+      or use Apache "in front of" rails, with something like
+    </p>
+    <pre>
+ProxyPass            /                   http://127.0.0.1:3000/ retry=2
+ProxyPassReverse     /                   http://127.0.0.1:3000/</pre>
+    <p>
+      in the Apache configuration file.
+    </p>
+    <p>
+      or you could make a redirect in iptables by adding the following in the end of the iptables config file (e.g. in RedHat /etc/sysconfig/iptables) and restart iptables.
+    </p>
+      <pre>
+# Redirect port 80 to rails
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-port 3000
+COMMIT</pre>
+
+    <a id="rails-thumbs"></a>
+    <h3>Thumbnails</h3>
+    <p>
+      Thumbnails for photos are generated through a rails plugin called <i>paperclip</i> when the image files are uploaded. These thumbnails are generated once and not changed until a new picture is uploaded. If there is a need for reprocessing the images, go to at.attentec.com/rails/at.attentec.server/ and run the following:
+    </p>
+    <pre>
+$ export class=User; rake paperclip:refresh</pre>
+    or
+    <pre>
+$ script/console
+>> User.find_each { |u| u.photo.reprocess! }</pre>
+
+
+    <a id="rails-debugging"></a>
+    <h3>Debugging</h3>
+    <p>
+      To be able to debug an object, like var_dump() in PHP, the function var_dump is defined in applications_helper.rb. This works well in both testCases and templates. Example:
+    </p>
+    <pre>
+var_dump @user
+<%= var_dump @user %></pre>
+    <p>
+      You can also use p to get debug output into the server console:
+    </p>
+    <pre>
+p @user</pre>
+    <p>
+      To show error messages from an ActiveRecord object during for example tests, you can use p_errors:
+    </p>
+    <pre>
+p_errors @user</pre>
+
+
+    <a id="android"></a>
+    <h2>Android</h2>
+    <p>
+      The GUI of the android application consists of a tab-view with each tab containing a so called Activity. An Activity is a class implementing one tab. This is convenient when one wishes to extend the current functionality with new or other already implemented applications.
+    </p>
+    <p>
+      For the user to be able to get past the login stage, a server as described <a href="#rails">above</a>, and an Internet connection is needed.
+    </p>
+
+    <a id="android-function"></a>
+    <h3>Function</h3>
+    <p>The login stage is the first part of the application which authenticates with the server. After logging in, a tab-view consisting of two tabs is displayed. The two tabs contain an Activity each. The first is a contact list called "Contacts" and the other is a Google map interface called "Close To You". By using the menu in the application and pressing "Preferences", the user can configure intervals for updates in the application. It is also possible to turn off the location update completely.
+    </p>
+
+    <h4>Login</h4>
+    <p>
+      The login uses the same username used at the rails server but a phone key generated in the account info on the rails server. It is possible to read the phone key via QR-code. For this we use <a href="http://code.google.com/p/zxing/">ZXing</a> by firing an Intent when the user clicks the button.
+    </p>
+
+    <h4>Contacts</h4>
+    <p>
+      The contact list is synchronized with the rails server and updates with the intervals given in the settings for this application. What data is sent can be seen in the <a href="#interface">Interface</a> section below. Clicking each status will bring up a list of alternatives on how to contact the person. These contact alternatives are implemented by firing the corresponding android Intent. The alternative for detailed info starts the Activity DetailedInfoActivity, also via an Intent.
+    </p>
+    <p>
+      The user can set availability and custom status and choose how to sort the list in the menu.
+    </p>
+    <h4>Close To You</h4>
+    <p>
+      The "Close to you" application displays a Google map that has some overlays with "flags" for other contacts, as well as a marker for the own position if available. For this map to work one needs the correct API key, which is defined in res/values/constants.xml. <span style="font-weight: bold;">This key is different for development and deployment!</span> See below under <a href="#keystore">"Keystore"</a>.
+    </p>
+
+
+
+    <a id="android-getting"></a>
+    <h3>Getting started</h3>
+    <p>
+      Eclipse is the best alternative developing for the Android platform. There is a plugin which connects to adb, which has a range of tools for android, including an emulator and multiple views in eclipse for debugging. Below are a set of steps required to start modifying, or building, this application.
+    </p>
+
+    <h4>Working with Android development and Eclipse</h4>
+
+    <h5>Setup Eclipse with Android:</h5>
+    <p>
+      Follow the guide on <a href="http://developer.android.com/sdk/index.html#quickstart">http://developer.android.com/sdk/index.html#quickstart</a>. In step 4 of the guide, choose "Google APIs by Google Inc." for the version you want to develop on (7 for android 2.1, 8 for android 2.2). The current target version is 2.1.
+    </p>
+    <h5>Importing the source code into a project</h5>
+    <ol>
+      <li>Go to File -> Import</li>
+      <li>Choose General -> Import existing project into workspace</li>
+      <li>Choose the folder at.attentec.com/android/at.attentec.client/ as root directory</li>
+      <li>After creating the project, set the encoding to UTF-8 by right-clicking the project in 'Package Explorer' choosing 'Properties' then 'Resources' and set 'Text file encoding' to 'Others: UTF-8'</li>
+      <li>Set the development keystore as described in <a href="#keystore">Keystore</a> below</li>
+      <li>Make a DevelopmentSettings.java from the DevelopmentSettings.java.template file</li>
+    </ol>
+    <p>
+      After importing the source code, you need to make a copy of DevelopmentSettings.java.template with the name DevelopmentSettings.java. It might also be necessary to set the ip/url of your rails server in this file.
+    </p>
+    <h5>Random tips:</h5>
+    <ul>
+      <li>
+        Sometimes it is good to run 'Project' -> 'Clean...' if a lot of error messages pop up.
+      </li>
+    </ul>
+
+    <a id="keystore" ></a>
+    <h5>Keystore</h5>
+    <p>
+      To get the map in Close To You working, you need to choose the right keystore and API key combination. How to generate keystores and API keys is described here: <a href="http://code.google.com/android/add-ons/google-apis/mapkey.html">http://code.google.com/android/add-ons/google-apis/mapkey.html</a>. It is practical to have two keystores, one for development and one for deployment. One also needs two map API keys.
+    </p>
+    <p>
+      Change the keystore you use in eclipse -> windows -> preferences -> android -> build -> custom keystore. Always choose the development keystore here. When you changed the keystore you need to uninstall the application from the emulator/phone before you can install it again, as it checks if the keys match. On the emulator/phone, go to Menu -> Settings -> Applications -> Manage to uninstall. It might also be a good idea to run Project -> Clean in Eclipse.<br />
+      For deployment, see <a href="#deployment">that chapter.</a>
+    </p>
+    <p>
+      To change they API key, copy-paste the one you want in at.attentec.com/android/at.attentec.client/res/values/constants.xml.
+    </p>
+
+    <h4>Test project</h4>
+    <p>
+      There is a test project with some very minimal tests in <tt>at.attentec.com/android/at.attentec.client.test/</tt>. To import this project into Eclipse, goto menu <em>File-&gt;Import...</em> Choose <em>General-&gt;Existing Project into Workspace</em> and click <em>Next</em>. Browse for the <tt>at.attentec.client.test</tt> folder and press <em>Finnish</em>. Make sure that the at.attentec.client project is named AtAttentec in eclipse, this is required for the testproject to find the AtAttentec-project. Then run <tt>AllTests.java</tt> as <em>Android JUnit test</em>
+    </p>
+    <a id="android-code"></a>
+    <h3>Code structure</h3>
+
+    <p>
+      The Android application consists of java classes and resources in the form of xml files and images. These can be found in at.attentec.com/android/at.attentec.client/. The java code is found in /src. Images (called drawables), layout files, and some settings are found in /res. Here we only focus on the code structure of the classes in /src. For a description of Android application structure we recommend <a href="http://developer.android.com/index.html">http://developer.android.com/index.html</a> as reference.
+    </p>
+
+    <p class="image">
+      <img alt="Design sketch" src="images/designscetch_android_low.png" /><br />
+      Figure 2. Design sketch for the Android applications Java code
+    </p>
+
+    <p>
+      The application uses a service to run things in the background, namely <i>AttentecService.java</i>. It is used for communicating with the server and fetch locations from the GPS in the background, so as not to block the user interface. For information about how a service works we refer to this guide: <a href="http://developer.android.com/reference/android/app/Service.html">http://developer.android.com/reference/android/app/Service.html</a>.
+    </p>
+
+    <p>
+      In the login stage the class <i>Login.java</i> is used. Upon successful login, an Intent is fired for the Activity <i>Attentec</i>.
+    </p>
+
+    <p>
+      The application has a layout consisting of a tab-view with tabs in it. Each tab is an activity of its own. The tab layout is created by <i>Attentec.java</i>. This initializes two other activities found in <i>ContactsActivity.java</i> and <i>CloseToYou.java</i>.
+    </p>
+
+    <p>
+      Data is stored in a local database. For this purpose there is a class called <i>DatabaseAdapter.java</i>. The usage of
+      <i>DatabaseAdapter.java</i> is indicated in Figure 2.
+    </p>
+    <p>
+    To contact the server there is a helper class called <i>ServerContact.java</i>.
+    </p>
+
+    <p>
+      To avoid duplication of constants in different classes the most common ones are stored in <i>DevelopmentSettings.java</i>. The same class also contains the default URL for the rails server.
+    </p>
+
+    <p>
+      The <i>CloseToYou.java</i> Activity has three classes for constructing the balloons showed. <i>ContactItemizedOverlay.java</i> is used to contain all balloons,  and <i>BalloonItemizedOverlay.java</i>, <i>BalloonOverlayView.java</i> and <i>ContactOverlayItem.java</i> describe how the balloons look and how they are interacted with.
+    </p>
+
+    <p>
+      When clicking on a list element in the contact list or a balloon in Close To You a list of alternatives on how to contact the person will pop up. The detailed info alternative runs <i>DetailedInfoActivity.java</i>. This class is an Activity that displays more detailed information about a contact.
+    </p>
+
+    <p>
+      The <i>ContactInRadius.java</i> Activity has one class for enabling an interface where the user can choose to display available contacts by radius. The displayed contacts can be selected and deselected individually to be contacted by SMS or e-mail.
+	</p>
+    <p>
+      <i>Status.java</i> is used to ease the management of different statuses. These statuses are visible in both the contact list and the map in Close To You. The usage of
+      <i>Status.java</i> is indicated in figure 1. <i>StatusDialogCreator.java</i> is used to create the dialog for selecting a status among a set of predefined statuses.
+    </p>
+
+    <p>
+      <i>Preferences.java</i> is a simple interface which parses res/xml/preferences.xml, which contains all preferences the user can set. <i>PreferencesHelper.java</i> is a helper class for accessing these preferences from code in a structured way.
+    </p>
+
+    <p>
+      <i>LocationHelper.java</i> is a helper class for obtaining the location. It uses the following working steps:
+    </p>
+      <ol>
+	<li>Start listening for GPS (starts GPS sensor) and network location, and start a timer.</li>
+	<li>When a new location comes in, check if it is accurate enough (configured in settings, default 50 meters). If it is, activate a callback, stop the listeners and cancel the timeout timer.</li>
+	<li>If the timer times out, use whatever location we can get from the GPS right now, even if it is not very accurate. If we do not get a location from the GPS (for example if the user has turned the GPS off), we use the network location if it accurate enough (500 meters). Activate the callback, and stop the listeners.</li>
+      </ol>
+    <p>
+      This way of fetching the location gives a low energy consumption, and provides a fallback for if the user has turned off the GPS sensor.
+    </p>
+
+    <p>
+      <i>SyncAccountAuthenticatorService.java</i>, <i>SyncBatchOperation.java</i>, <i>SyncContactManager.java</i>, <i>SyncContactOperations.java</i> and <i>SyncContactSyncAdapterService.java</i> handle the synchronization with the phones contact list. It is separated from the application except for reading from the database. For implementation details for this feature see the links below:
+    </p>
+    <p>
+      <a href="http://www.c99.org/2010/01/23/writing-an-android-sync-provider-part-1/">http://www.c99.org/2010/01/23/writing-an-android-sync-provider-part-1/ </a><br />
+      <a href="http://www.c99.org/2010/01/23/writing-an-android-sync-provider-part-2/">http://www.c99.org/2010/01/23/writing-an-android-sync-provider-part-2/ </a><br />
+      And Googles example implementation:<br />
+      <a href="http://developer.android.com/resources/samples/SampleSyncAdapter/index.html"> http://developer.android.com/resources/samples/SampleSyncAdapter/index.html </a>
+    </p>
+
+    <a id="deployment"></a>
+    <h3>Deployment</h3>
+
+    <h4>Creating an apk file for installation on phone</h4>
+    <p>
+      To create an apk file which you can install on your phone and distribute to users, follow these steps:
+    </p>
+    <ol>
+      <li>Change to (temporarily) the live API key for google maps in at.attentec.com/android/at.attentec.client/res/values/constants.xml.</li>
+      <li>Make sure the correct server url is entered in DevelopmentSettings.java.</li>
+      <li>In eclipse, choose File -> Export.</li>
+      <li>Choose Android/Export Android Application.</li>
+      <li>Select the project of the application.</li>
+      <li>Follow the guide to create or use an existing keystore (the one you have the API key for in constants.xml)</li>
+      <li>Change the API key back to the development one in at.attentec.com/android/at.attentec.client/res/values/constants.xml.</li>
+      <li>To enable download, you could save the apk file in the rails public/downloads folder, and deploy it to your server.</li>
+    </ol>
+
+    <a id="android-debugging"></a>
+    <h3>Debugging</h3>
+    <p>
+      For an extensive documentation on debugging Android applications with Eclipse this guide is recommended: <a href="http://developer.android.com/guide/developing/tools/adb.html">http://developer.android.com/guide/developing/tools/adb.html</a> To enable the debugging perspective, go to Window -> Open Perspective -> DDMS. To go back to the coding environment go to Window -> Open Perspective -> Java. Below are a couple of quick tips that are recommended for debugging.
+    </p>
+
+    <h4>Examining the android SQL-database</h4>
+    <p>
+      The database in Android is of the format sqlite3. It can be extracted from the emulator or phone by using the file explorer. This can be found by going to Window -> Show View -> Other -> File Explorer. When the file explorer is opened through the folder hierarchy like this: data -> data -> com.attentec -> databases -> data. When selected press the icon seen in figure 2.
+    </p>
+    <p class="image">
+      <img alt="Extract database" src="images/extract_database.png" /><br />
+      Figure 2. Extract database.
+    </p>
+    
+    <h4>Debugging in eclipse with an emulator or a phone</h4>
+    <p>
+      In eclipse when the emulator is running there is a log that can be enabled that is very helpful when debugging an application. It is enabled by going to Window -> Show View -> Other -> Android -> LogCat. In the view for LogCat it is sometimes helpful to clear the log when LogCat stops displaying the messages as a sequence. To output to this log, use something like this in your code:
+    </p>
+    <pre>
+Log.d(TAG, "This is my error message");
+    </pre>
+    <p>
+      Where <i>TAG</i> is a variable containing a string identifying the class.
+    </p>
+
+    <a id="interface"></a>
+    <h2>Interface between Android and Rails</h2>
+    <p>
+      The communication between the android application and the rails server is done fully over HTML POST requests with JSON data. Every request has authentication data, as well as any data we want to send. All requests are initiated from the application side. The different communications:
+    </p>
+    <ul>
+      <li><span class="interface_name">Login</span>: Serves to check the users phone key on login. Request and response of the following form:
+  <table style="border: 1px solid #000; border-collapse: collapse;">
+    <tr >
+      <td class="trow">URL</td>
+      <td>app/login.json</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>
+        <pre>phone_auth={"username":"ninli", "phone_key":"1234abcd"}</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>
+        <pre>
+{"Responsestatus":"Success"}
+    or
+{"Responsestatus":"Wrong login"}</pre>
+      </td>
+    </tr>
+  </table>
+  These POST and Response variables are always present in all requests and responses.
+      </li>
+      <li><span class="interface_name">Contact list</span>: A list with all contacts and all their info.
+  <table style="border: 1px solid #000; border-collapse: collapse;">
+    <tr >
+      <td class="trow">URL</td>
+      <td>app/contactlist.json</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Only authentication as above</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td><pre>
+{"users":
+	[
+	{"user":{"city":"Ninja City",
+	"address":"Ninjastreet 12",
+	"location_updated_at":null,
+	"latitude":null,
+	"title":"Ninja",
+	"connected_at":"2010-07-30T10:37:58+02:00",
+	"zipcode":12345,
+	"degree":"Master of Science in Applied Ninja",
+	"username":"ninji",
+	"photo_url":"/images/photos/missing/android/missing.png",
+	"id":94,
+	"photo_updated_at":null,
+	"client":"",
+	"phone":"+46000111000",
+	"linkedin_url":null,
+	"last_name":"Li",
+	"status_custom_message":"Hiding on your roof",
+	"longitude":null,
+	"status":"not_available",
+	"first_name":"Ninja",
+	"email":"ninji@ji.jp"}},
+
+	{"user":...},...
+	],
+"Responsestatus":"Success"
+}</pre>
+      </td>
+    </tr>
+  </table>
+      </li>
+      <li><span class="interface_name">User locations and status</span>: Users location and current status, for all users that have connected in the last three hours.
+  <table style="border: 1px solid #000; border-collapse: collapse;">
+    <tr >
+      <td class="trow">URL</td>
+      <td>app/user_locations_and_status.json</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Only authentication as above</td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td><pre>
+{"users":
+	[
+		{"user":
+			{"location_updated_at":"2010-08-05T10:03:08+02:00",
+			"latitude":null,
+			"connected_at":"2010-08-05T10:04:09+02:00",
+			"id":94,
+			"status_custom_message":"Sneaking in your basement",
+			"longitude":null,
+			"status":"not_available"}
+		}
+	],
+"Responsestatus":"Success"}</pre>
+      </td>
+    </tr>
+  </table>
+      </li>
+
+      <li><span class="interface_name">Update user info</span>: Send location and/or status to server.
+  <table style="border: 1px solid #000; border-collapse: collapse;">
+    <tr >
+      <td class="trow">URL</td>
+      <td>app/app_update_user_info.json</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Authentication and
+        <pre>
+    for status updates:
+{"status":
+	{"status":"not_available", "status_custom_message":"Sneaking in your basement"}
+}
+    for location updates:
+{"location":
+	{"latitude":"58.795507","longitude":"17.566488"}
+}</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Response</td>
+      <td>
+        <pre>
+{"Responsestatus":"Success"}
+    or
+{"Responsestatus":"Wrong login"}</pre>
+      </td>
+    </tr>
+  </table>
+      </li>
+
+    </ul>
+
+
+    <a id="misc"></a>
+    <h2>Miscellaneous</h2>
+    <a id="locale"></a>
+    <h3>Locale</h3>
+    <p>
+      The default locale on the server and the client is set to Swedish, but there are English translations available in both rails and the android application.
+    </p>
+    <p>
+      To set the locale to english on the rails server, change</p>
+<pre>
+config.i18n.default_locale = 'sv-SE'</pre>
+<p>to</p>
+<pre>
+config.i18n.default_locale = 'en'</pre>
+<p> in <i>config/environment.rb</i></p>
+    </p>
+    <p>
+      To set the default locale to english on the android application, replace the Swedish strings.xml file with the english strings.xml, and move the swedish one (if you want to keep it) to a values-sv folder.
+    </p>
+    <a id="virtual"></a>
+    <h3>Working with Ubuntu in Virtual Box</h3>
+    <ul>
+      <li>
+        To mount a windows folder in virtualbox ubuntu:<br />
+        In virtualbox: (Enheter -> Delade mappar) and add the folder with folder_name (something you choose)<br />
+        Then in Ubuntu:
+	<pre>
+sudo mount -t vboxsf folder_name /media/windows</pre>
+      </li>
+      <li>
+        To enable access to a server (for example rails) inside virtualbox, from the outside:<br />
+        Shut the virtual machine down, then go to settings for the virtual machine -> network -> Adapter 2 -> Enable and change "Attached To" to "Host interface".<br />
+        Start your virtual machine again. The ip you can reach it on is found by running 'ifconfig', and using the ip found under eth1, inet addr:.
+      </li>
+      <li>
+        If the shared folders stop working: reinstall the guest additions in virtualbox.
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+</html>

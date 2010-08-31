@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<!-- Statusbar -->
+	<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/statusbar"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:background="#EEFFFF"
+		android:layout_height="wrap_content">
+		<!-- My Status: -->
+		<TextView
+			android:id="@+id/statusbar_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor = "#FF000000"
+			android:padding = "5sp"
+			android:text="@string/my_status"/>
+			<!-- Status Block -->
+			<LinearLayout 
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:orientation="horizontal"
+				android:layout_toRightOf="@+id/statusbar_title"
+				android:id="@+id/statusbar_status_block"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<!-- Status Icon -->
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/status_online_circle" 
+					android:padding="5sp"
+					android:id="@+id/statusbar_icon"
+					android:layout_toRightOf="@+id/statusbar_title"/>
+				<!-- Status -->
+				<TextView
+					android:id="@+id/statusbar_status"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor = "#FF000000"
+					android:padding = "5sp"
+					android:text="@string/no_status"/>
+					<!-- Status Triangle icon -->
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/status_edit_arrow" 
+					android:padding="5sp"
+					android:id="@+id/statusbar_status_edit_arrow"/>
+			</LinearLayout>
+			<!-- Custom Status Message Block -->
+			<LinearLayout 
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:orientation="horizontal"
+				android:id="@+id/statusbar_custom_message_block"
+				android:layout_below="@+id/statusbar_status_block"
+				android:layout_toRightOf="@+id/statusbar_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+				<!-- Custom Status Message -->
+				<TextView
+					android:id="@+id/statusbar_custom_message"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor = "#FF000000"
+					android:padding = "5sp"
+					android:textStyle="italic"
+					android:text="@string/no_custom_status"/>
+				<!-- Custom Status Triangle icon -->
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/status_edit_arrow" 
+					android:padding="5sp"
+					android:id="@+id/statusbar_custom_edit_arrow"/>
+			</LinearLayout>
+	</RelativeLayout>
+	<!-- Disabled statusbar -->
+	<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/disabled_statusbar"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:background="#EEFFFF"
+		android:visibility="gone"
+		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/disabled_statusbar_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor = "#FF000000"
+			android:padding = "10sp"
+			android:text="@string/status_disabled"/>
+	</RelativeLayout>
+
+	<!-- Contact list -->
+	<ListView
+		android:id="@id/android:list"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="#FFFFFF"
+		android:cacheColorHint="#00000000"
+		android:layout_weight="1"
+		android:drawSelectorOnTop="false"/>
+	<TextView
+		android:id="@id/android:empty"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="#DDDDDD"
+		android:textColor = "#FF000000"
+		android:padding = "5sp"
+		android:text="@string/no_contacts"/>
+</LinearLayout>

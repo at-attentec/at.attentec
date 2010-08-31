@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">\@Attentec</string>
+    <string name="close_to_you">Nära dig</string>
+    <string name="contact_list">Kontakter</string>
+    <string name="login">Logga in</string>
+    <string name="scan">Läs in nyckel</string>
+    <string name="username">Användarnamn:</string>
+    <string name="phone_key">Telefonnyckel:</string>
+    <string name="no_data">Data saknas</string>
+    <string name="phone">Telefon:</string>
+    <string name="pick_contact_action">Välj kontaktsätt:</string>
+    <string name="call">Ring</string>
+    <string name="send_message">Skicka SMS</string>
+    <string name="send_email">Skicka E-post</string>
+    <string name="navigate_to">Navigera till</string>
+    <string name="no_action_available">Inga kontaktuppgifter tillgängliga</string>
+    <string name="logging_in">Loggar in</string>
+    <string name="contacting_server">Kontaktar server</string>
+    <string name="contact">Kontakta</string>
+    <string name="no_contacts">Inga kontakter ännu</string>
+    <string name="service_started">Kontakter och position uppdateras</string>
+    <string name="service_started_no_position">Kontakter och andras positioner uppdateras</string>
+    <string name="service_label">\@Attentec</string>
+    <string name="menu_order_by_contacted_at">Sortera efter kontakttid</string>
+    <string name="menu_order_by_first_name">Sortera efter Förnamn</string>
+	<string name="menu_order_by_last_name">Sortera efter Efternamn</string>
+	<string name="menu_order_by_distance">Sortera efter Avstånd</string>
+    <string name="menu_start_service">Starta uppdateringar</string>
+    <string name="menu_stop_service">Stoppa uppdateringar</string>
+    <string name="menu_show_preferences">Inställningar</string>
+    <string name="menu_contact_radius">Radie</string>
+    <string name="press_back_to_close">Tryck på bakåt-knappen för att avsluta</string>
+    <string name="login_error_starting_without_service">Fel vid inloggning, startar utan uppdateringar</string>
+    <string name="login_fail">Felaktigt användarnamn eller telefonnyckel</string>
+    <string name="scan_fail">Kräver applikationen \"Barcode scanner\"</string>
+    <string name="ACCOUNT_TYPE">Attentec</string>
+    
+    <!-- Preferences/Settings strings -->
+    <string name="settings_summary">Inställningar för applikationen @Attentec</string>
+    <string name="settings_header">Inställningar</string>
+    <string name="settings_header_server">Server</string>
+    <string name="settings_header_sync">Uppdateringar</string>
+    <string name="settings_header_position">Position</string>
+    <string name="settings_contact_sync_interval">Hämta kontakter</string>
+    <string name="settings_contact_sync_interval_text">intervall i minuter</string>
+	<string name="settings_locations_and_status_update_interval">Uppdatera positioner och status</string>
+    <string name="settings_locations_update_enabled">Skickar position</string>
+    <string name="settings_locations_update_disabled">Skickar inte position</string>
+    <string name="settings_locations_update_interval_text">intervall i minuter</string>
+	<string name="settings_locations_update_own_interval">Uppdatera egen position</string>
+    <string name="settings_locations_update_own_interval_text">intervall i minuter</string>
+	<string name="settings_locations_update_start_time">Skicka position efter</string>
+    <string name="settings_locations_update_start_time_text">Klockan</string>
+	<string name="settings_locations_update_end_time">Skicka position fram till</string>
+    <string name="settings_locations_update_end_time_text">Klockan</string>
+    <string name="settings_gps_timeout">Timeout för GPS-fix</string>
+    <string name="settings_gps_timeout_text">Antal sekunder</string>
+    <string name="settings_gps_distance">Noggrannhetskrav på GPS</string>
+    <string name="settings_gps_distance_text">Meter</string>
+    <string name="settings_server_urlbase">Adress till server</string>
+    <string name="settings_server_urlbase_text">Ändras ej i normalfall</string>
+
+    
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    
+    <string name="no_status">Status saknas</string>
+    <string name="no_custom_status">Personlig status saknas</string>
+    <string name="my_status">Min status:</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_online">Online</string>
+    <string name="status_do_not_disturb">Stör ej</string>
+    <string name="status_not_available">Ej tillgänglig</string>
+    <string name="status_away">Borta</string>
+    <string name="status_invisible">Osynlig</string>
+    
+    <string name="status_disabled">Starta uppdateringar för att kunna sätta status</string>
+    
+    <string name="ok">OK</string>
+    <string name="cancel">Avbryt</string>
+    <string name="status_custom_message_dialog_title">Mata in statusmeddelande</string>
+    <!-- # is replaced by the number that limits the number of chars -->
+    <string name="status_custom_message_dialog_message">Max # tecken.</string>
+    
+    <string name="view_detailed_info">Visa detaljerad info</string>
+    <string name="email">Epost:</string>
+    <string name="degree">Examen:</string>
+    <string name="title">Titel:</string>
+    <string name="linkedin">Linkedin:</string>
+    <string name="client">Kund:</string>
+    <string name="address">Adress:</string>
+    
+    <string name="radius">Avstånd: </string>
+    <string name="infinity">∞</string>
+    <string name="kilometers">km</string>
+    <string name="meters">m</string>
+    <string name="select_wider_radius">Inga kontakter inom denna radie.</string>
+    <string name="no_own_location">Vet inte var vi är, så avstånd kan vara felaktiga.</string>
+    
+    
+</resources>

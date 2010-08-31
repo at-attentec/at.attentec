@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<!--
+Copyright (c) 2010 Attentec AB, http://www.attentec.se
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Användarmanual Attentec Kommunikationsplattform</title>
+	<link rel="stylesheet" href="stylesheets/manual.css" type="text/css" charset="utf-8"/>
+	<script type="text/javascript" charset="utf-8" src="js/linkfixer.js"></script>
+</head>
+<body>
+
+<div id="content">
+	<div id="header">
+		<a href="../users/"><img class="logo" alt="Attentec" src="images/headerlogo.png" title="Attentec" /></a><br/>
+	</div>
+	<h1>Användarmanual Attentec Kommunikationsplattform</h1>
+
+	<p>
+		Attentecs Kommunikationsplattform syftar till att erbjuda en bekväm miljö att kommunicera i. Den lämpar sig ytterst väl för konsulter på ett företag som aspirerar att ständigt ha konsulter ute på fältet.
+	</p>
+
+
+	<p>
+		Plattformen har följande fokus:
+	</p>
+	<ul>
+		<li>Utnyttja geografisk information för att ge en effektivare samverkan mellan anställda</li>
+		<li>Synkronisera kontaktinformation som sedan lätt kan distribueras vidare till kunder med flera</li>
+	</ul>
+
+
+	<p>
+		Kommunikationsplattformen är uppdelad i två delar, en serversida där användare kan uppdatera sin information och en applikation för Android som synkroniserar mot nämnda server och presenterar informationen på ett bra sätt. Denna uppdelning följer nedan och funktionaliteten beskrivs där mer ingående.
+	</p>
+
+	<h2>Systemkrav</h2>
+	<p>
+		För att använda systemet krävs följande:
+	</p>
+	<ul>
+		<li>Webbläsare</li>
+		<li>Android-telefon med Android version 2.1 eller nyare</li>
+	</ul>
+
+	<h2>Snabbstart</h2>
+	<p>
+		Här ges en snabb introduktion med minimal information, för de som vill komma igång snabbt. Fastnar du på någon punkt finns mer information längre ned i dokumentet.
+	</p>
+	<ol>
+		<li>Logga in på webbgränssnittet <a href="../users/login">på denna länk</a>.</li>
+		<li>Tryck på visa vid ditt eget namn, och tryck "Generera telefonnyckel".</li>
+		<li>
+			Ladda ner applikationen till telefonen från <a href="../downloads/at.attentec.apk">denna länk</a>.
+			<br />
+			<img class="download_qr" src="images/headerlogo.png" alt="QR-kod för nedladdning av android-appen"/>
+		</li>
+		<li>Installera applikationen</li>
+		<li>Starta applikationen, och logga in med din användare och telefonnyckel (skapad i punkt 2).</li>
+	</ol>
+
+
+	<h2>Server</h2>
+	<p>
+		Servern är central för lagring och tillhandahåller gränssnitt för att komma åt den lagrade informationen.
+	</p>
+	<h3>Skapa konto</h3>
+	<p>
+		Man kan logga in på sitt konto <a href="../users/login">på denna länk</a>. Man registrerar en ny användare på <a href="../users/new">registreringssidan</a>.
+	</p>
+
+	<p class="image">
+		<img   alt="Inloggningsruta" src="images/log_in.png"/><br/>
+		Figur 1. Fält för att logga in.
+	</p>
+
+	<p>
+		När en administratör skapar ett konto kommer man till sidan i figur 2.
+	</p>
+
+	<p class="image">
+		<img   alt="Registeringsformulär" src="images/create_account.png"/><br />
+		Figur 2. Fält för att skapa ny användare.
+	</p>
+
+
+	<p>
+		En del av den informationen som användaren väljer att ange kommer att användas vid generering av
+		vCard (se längre ned) och visitkort för webben (se längre ned).
+	</p>
+
+	<h3>Logga in</h3>
+	<p>
+		Inloggning görs via fälten i figur 1. Notera att lösenordet här skiljer sig från det man använder för att sedan logga in via telefonen.
+	</p>
+
+	<h3>Visa kontakter</h3>
+	<p>
+		Nedan i figur 3 visas en lista på alla användare i kontaktdatabasen.
+	</p>
+
+	<p class="image">
+		<img   alt="Lista med användare" src="images/contacts.png"/><br />
+		Figur 3. Kontakter registrerade i kontaktdatabasen.
+	</p>
+
+	<p>
+		Listan innehåller kortfattad information om alla användare och via plustecknet till vänster på varje rad kan man välja att expandera informationen för en användare för att få tillgång till mer utförlig information.
+	</p>
+
+	<p>
+		Om man väljer att klicka på länken visa på andra användare ser man information i stil med figur 4.
+	</p>
+
+	<p class="image">
+		<img  alt="Information om en användare" src="images/view_info.png"/><br />
+		Figur 4. Information om vald användare.
+	</p>
+
+	<p>
+		Om man klickar på länken visa på sin egen rad i kontaktlistan får man än mer utförlig information. Den information som skiljer sig är telefonnyckeln. Hur denna används förklaras längre ned.
+	</p>
+
+	<p class="image">
+		<img  alt="Information om dig själv" src="images/view_personal_info.png"/><br />
+		Figur 5. Information om dig själv.
+	</p>
+
+	<h3>Redigera information</h3>
+
+	<p>
+		Vid redigering av information går det att ändra på allt utom koordinater, som uppdateras av telefonen när den synkroniserar mot servern, och telefonnyckel som skapas enligt information nedan. Man kan även ställa in här om det ska vara möjligt att komma åt ett virtuellt visitkort med namn och telefonnummer. Visitkortet länkas från sidan i Figur 5 och är åtkomligt utan att vara inloggad.
+	</p>
+
+	<p class="image">
+		<img  alt="Redigering en användares information" src="images/edit_info.png"/> <br />
+		Figur 6. Fält för att redigera användarens information.
+	</p>
+
+	<h3><a id="telefonnyckel"></a>Telefonnyckel</h3>
+	<p>
+		Då säkerhet blir allt viktigare är det inget undantag här. För att logga in med applikationen behövs en telefonnyckel, som snabbt och enkelt kan skapas och avaktiveras med knappar på detaljsidan för en person, som syns i figur 7. Klickar man på "Generera ny telefonnyckel" så slumpas en ny nyckel för användaren. Det går även att ta bort inloggningsmöjlighet via applikation helt och hållet genom att klicka på "Ta bort telefonnyckel".
+	</p>
+	<p>
+		För att göra inmatning av telefonnyckel smidigare så finns det även en så kallad QR-kod som kan läsas av med telefonen om programmet "Barcode Scanner" är installerat. Barcode Scanner är gratis och går att ladda ned från Android Market (följ denna länk från telefonen: <a href="market://details?id=com.google.zxing.client.android">market://details?id=com.google.zxing.client.android</a> eller sök på android market efter barcode scanner).
+	</p>
+
+	<p class="image">
+		<img  alt="QR-kod för telefonnyckenl" src="images/qr_key.png"/><br />
+		Figur 7. Gränssnitt för generering och avläsning av telefonnyckel.
+	</p>
+
+	<h3>Visitkort</h3>
+	<p>
+		Det finns en möjlighet att hänvisa till länkar för visitkort i form av vCard och i form av en mobilanpassade hemsida som har mer utförlig information. QR-koden som kan ses i figur 8 kan läsas av med programmet Barcode Scanner. Tanken är att den både kan läsas av från hemsidan och från ett tryckt visitkort.
+	</p>
+
+	<p class="image">
+		<img  alt="QR-kod för visitkort" src="images/qr_business_card.png"/><br />
+		Figur 8. Nyckel för avläsning av visitkort samt länk till visitkort både för webb och nedladdning.
+	</p>
+
+	<h2>Klient</h2>
+	<p>
+		Applikationen för plattformen Android är avsedd att utnyttja den kontaktdatabas som finns på servern för att tillhandahåll en kommunikationsplattform. I grova drag är den uppdelad i två delar, en kontaktlista och en kartfunktion där man kan se var användarna befinner sig.
+	</p>
+
+	<h3>Installation</h3>
+	<p>
+		Installation av applikationen sker i fem steg:
+	</p>
+	<ol>
+		<li>Ställ in telefonen att tillåta applikationer som inte är från market enligt följande:
+			<ul>
+				<li>Gå in på "Inställningar"</li>
+				<li>Gå in på "Program"</li>
+				<li>Kryssa i "Okända källor"</li>
+			</ul>
+		</li>
+		<li>Om du vill rapportera din position (rekommenderas) måste GPS-sensorn aktiveras:
+			<ul>
+				<li>Gå in på "Inställningar"</li>
+				<li>Gå in på "Plats"</li>
+				<li>Kryssa i "Använd GPS-satelliter"</li>
+			</ul>
+			Applikationen använder inte några andra sensorer såsom basstationer eller wifi-nät, då de troligtvis inte är tillräckligt noggranna för våra syften.
+		</li>
+		<li>Ladda ned applikationen med telefonen från <a href="../downloads/at.attentec.apk">denna länk</a>. Om du installerat applikationen "Barcode Scanner" kan du läsa in denna QR-kod: <br/>
+		  <img class="download_qr" src="images/headerlogo.png" alt="QR-kod för nedladdning av android-appen"/>
+		</li>
+		<li>När den laddats ned, klicka på den i listan.</li>
+		<li>Tryck installera, och sedan öppna.</li>
+	</ol>
+
+	<h3>Logga in</h3>
+
+	<p class="image">
+		<img  alt="Inloggningsskärm i Android-appen" src="images/swedish/android_login.png"/><br />
+		Figur 9. Login-ruta för Android-applikationen.
+	</p>
+
+	<p>
+		I figur 9 kan man se hur inloggningsrutan för Android-applikationen ser ut. Här behöver man en telefonnyckel för att logga in. Denna kan genereras via webgränssnittet, se <a href="#telefonnyckel">ovan</a>. Det som kan verka nytt är knappen som lyder "Läs in nyckel". För att använda denna behöver man installera applikationen Barcode Scanner för Android. Med hjälp av denna funktion kan man läsa av den så kallade QR-kod som syns i webbgränssnittet när man visar information för sin egen användare.
+	</p>
+
+	<h3>Kontaktlista</h3>
+
+	<p>
+		I figur 10 kan man se hur kontaktlistan i Android-applikationen ser ut. Den uppdateras enligt det intervall man angivit i inställningar (se längre ned). Utöver namn och telefonnummer visar den även vad man gör för stunden, om kontakten angett det, kontakters tillgänglighet. Tillgängligheten visas även med en färgad cirkel. Om en kontakt loggat ut eller inte kontaktat servern på 3 timmar så visas denna som offline.
+	</p>
+
+	<p class="image">
+		<img  alt="Kontaktlista i Android-appen" src="images/swedish/android_contacts.png"/><br />
+		Figur 10. Synkroniserbar kontaktlista i Android-appen.
+	</p>
+
+
+	<h4>Uppdatera status</h4>
+	<p>
+		För att hålla övriga användare uppdaterade kan man välja att ange en specifik status för vad man gör för stunden. Uppdateringen görs genom att klicka på textfältet under "Min status". Denna status-uppdatering når användarna när deras applikation uppdaterar kontaktlistan. Hur ofta den gör detta beror på vilka inställningar de har. För att statusen ska fortsätta vara satt, måste programmets bakgrundsservice vara igång, se <a href="#avstangning">nedan</a> för information om hur man kan ha igång den men stänga ner applikationen.
+	</p>
+
+	<p class="image">
+		<img  alt="Möjligheten att uppdatera status i Android-appen" src="images/swedish/android_status_update.png"/><br />
+		Figur 11. Fält för att uppdatera status. Syns i kontaktlistan för de andra användarna av applikationen.
+	</p>
+
+	<h4>Uppdatera tillgänglighet</h4>
+	<p>
+		Med hjälp av menyn i figur 12 kan man ange vilken tillgänglighet man har för stunden. Menyn visas när man trycker på cirkeln till höger om "Min status". Denna tillgänglighet markeras både genom en cirkel och en text. Båda dessa visas i kontaktlistan för de andra användarna. Den färgade cirkeln visas även på kartan. För att statusen ska fortsätta vara satt, måste programmets bakgrundsservice vara igång, se <a href="#avstangning">nedan</a> för information om hur man kan ha igång den men stänga ner applikationen.
+	</p>
+
+	<p class="image">
+		<img  alt="Möjligheten att uppdatera tillgänglighet i Android-appen" src="images/swedish/android_availability.png"/><br />
+		Figur 12. Fält för att uppdatera tillgänglighet. Syns i kontaktlistan för de andra användarna av applikationen.
+	</p>
+
+
+	<h4>Snabbkontakt</h4>
+	<p>
+		Ett fönster för att smidigt kunna ta kontakt med användarna. Kontaktsätten som visas beror på hur mycket information kontakten har valt att ange.
+	</p>
+	<p class="image">
+		<img  alt="Möjligheten att kontakta en kontakt i kontaktlistan" src="images/swedish/android_contact_options.png"/><br />
+		Figur 13. Olika sätt att kontakta den berörda kontakten på.
+	</p>
+
+	<h4>Visa Detaljerad Info</h4>
+	<p>
+		Ett fönster för att visa detaljerad info. Man kommer åt detta fönster via fönstret för snabbkontakt som illustreras i Figur 13. Om telefonnummer, e-mail respektive linkedin är ifyllt kommer de att anges som länkar som man kan klicka på för att ringa, skicka E-post eller gå in på linkedin.
+	</p>
+
+	<h4>Sortera kontakter</h4>
+	<p>
+		Då det ibland är av intresse att sortera kontakterna på olika sätt beroende på situation finns det en meny för kontaktlistan som erbjuder fyra sorteringsmöjligheter (se figur 14):
+	</p>
+	<ul>
+		<li>Förnamn</li>
+		<li>Efternamn</li>
+		<li>Avstånd</li>
+		<li>Senast kontaktad</li>
+	</ul>
+	<p>
+		Om man är intresserad av fysisk interaktion med andra användare kan sortering efter avstånd vara fördelaktigt.
+	</p>
+	<p class="image">
+		<img  alt="Möjlighet att sortera kontakter på olika sätt i Android-appen" src="images/swedish/android_contact_sorting.png"/><br />
+		Figur 14. Olika sätt att sortera kontakterna på.
+	</p>
+
+	<h4>Kontakter inom viss radie</h4>
+	<p>
+		För att få tillgång till de som bara befinner sig inom en viss radie kan man välja Radie i menyn. Detta startar en aktivitet som har en <i>slider</i> som används för ställa in önskad radie. Kontaktlistan nedanför kommer då bara att visa de som befinner sig inom denna radie. Varje kontakt kan avmarkeras och markeras för att sedan kontaktas med sms eller e-mail. På det här sättet kan man enkelt nå ut med information till alla som befinner sig i närheten.
+	</p>
+	<p class="image">
+		<img  alt="Kontakter inom vald radie" src="images/swedish/android_contact_in_radius.png"/><br />
+		Figur 15. Alla kontakter inom vald radie
+	</p>
+
+	<h3>Nära dig</h3>
+
+	<p>
+		Detta är den andra stora funktionen i Android-applikationen. Den använder sig av googles API för google maps och visar bubblor för vart de andra användarna befinner sig. Om en användare inte har varit inloggad på länge så blir koordinaten inaktuell och visas inte längre på kartan. På så vis har man alltid en uppdaterad vy över vart användarna befinner sig. I varje bubbla visas en bild, namn samt en cirkel som indikerar tillgänglighet. För information om vad varje färg innebär hänvisas läsaren till figur 12.
+	</p>
+
+	<p class="image">
+		<img  alt="Karta med användares position" src="images/swedish/android_close_to_you.png"/><br />
+		Figur 16. Karta med användares position
+	</p>
+
+	<h4>Snabbkontakt</h4>
+
+	<p>
+		På samma sätt som i kontaktlistan kan man enkelt kontakta en användare på kartan genom att klicka på dennes bubbla. Denna vy visas i figur 16.
+	</p>
+
+	<p class="image">
+		<img  alt="Möjligheten att kontakta en kontakt i Nära dig" src="images/swedish/android_close_to_you_contact.png"/><br/>
+		Figur 17. Olika sätt att kontakta användare på.
+	</p>
+
+
+	<h3>Avstängning och bakgrundsservice</h3>
+	<p>För att andra ska se dig som online, eller vilken status du satt, så måste applikationens bakgrundstjänst vara igång i bakgrunden. Man åstadkommer detta genom att "stänga" programmet med "Hem"-knappen, som har ett litet hus på sig. Om man helt vill stänga ner programmet (och visas som offline för andra), stänger man av programmet med "Bakåt"-knappen, med en liten pil på sig.</p>
+
+
+	<h3>Inställningar</h3>
+	<p>
+		Android-applikationen kan ställas in av varje användre. Det som kan varieras är hur ofta och om vissa saker ska uppdateras. Detta är främst lämpligt för att spara batteri och kostnader då det kan vara dyrare att uppdatera då man är utomlands. Att stänga av skickning av position kan vara önskvärt när man inte vill visa vart man är. Som grundinställning skickas den egna positionen till servern endast på arbetstid mellan 8 och 17. Även dessa tider kan ställas in.
+	</p>
+
+	<h4>Uppdateringar</h4>
+	<p class="image">
+		<img  alt="Inställningar i Android-appen" src="images/swedish/android_settings.png"/><br />
+		Figur 18. Konfigurering av hur ofta olika uppdateringar ska ske och huruvida GPS-koordinater ska skickas in eller ej.
+	</p>
+	<p>
+		För att applikationen ska ha tillgång till ny information så uppdaterar den med jämna intervall. Dessa intervall kan varieras genom att gå in på inställningar via menyn. Menyn får man fram genom att klicka på knappen Menu på telefonen. I figur 17 ovan kan man se vilka intervall som går att variera. Det går även att välja om GPS ska uppdateras eller ej. Inställningsmöjligheterna listas även här:
+	</p>
+	<ul>
+		<li>Hämta kontakter intervall: Hur ofta hela listan med kontakter ska hämtas från servern.</li>
+		<li>Uppdatera positioner och status intervall: Hur ofta andras positioner och status hämtas från server.</li>
+		<li>Uppdatera egen position intervall: Hur ofta egen status hämtas från GPS och skickas till server.</li>
+		<li>Skicka position efter: Efter vilket klockslag egen position skickas till server.</li>
+		<li>Skicka position fram till: Fram till vilket klockslag egen position skickas till server.</li>
+		<li>Skickar position: Om egen position skickas till servern och andra användare. Om denna inte är ikryssad kommer ingen GPS att användas.</li>
+		<li>Timeout för GPS-fix: Hur länge telefonen ska aktivera GPS-sensorn vid varje hämtning av egen position. Denna inställning har prioritet före noggrannhetskravet nedan.</li>
+		<li>Noggrannhetskrav på GPS: Hur många meter telefonen ska ha som krav för att stänga av GPSen och skicka position.</li>
+	</ul>
+
+
+	<h4>Bakgrundstjänster</h4>
+	<p class="image">
+		<img  alt="Bakgrundstjänst i Android-appen" src="images/swedish/android_services.png"/><br/>
+		Figur 19. Lista över bakgrundstjänster som är igång i telefonen.
+	</p>
+
+	<p>
+		För att hantera synkronisering och uppdateringar för applikationen körs en brakgrundstjänst. Denna kan stängas av separat från applikationen via meny-knappen för att helt stänga av all kontakt med servern.
+	</p>
+	<p>
+		Detta kan vara önskvärt när man är på resande fot utomlands och kan ha höga roamingavgifter. Ur batterisynpunkt är det också önskvärt att ha så lite igång som möjligt. En första batterisparande åtgärd kan göras genom att ändra applikationens inställningar enligt stycket ovan. Förhoppningen är att denna service alltid ska vara igång under arbetstid, så det är rekommenderat att inte stänga av den om det inte föreligger bra skäl till det.
+	</p>
+	<p>
+		Om man tvärtom vill ha igång bakgrundstjänsten men inte applikationen (för att till exempel synas som online och skicka position till andra), gömmer man applikationen genom att trycka på "Hem"-knappen.
+	</p>
+
+
+	<h4><a id="synkronisering-telefon"></a>Synkronisering med telefonens kontaktlista</h4>
+
+	<p class="image">
+		<img  alt="Synkronisering med telefonens kontaktlista" src="images/swedish/android_contact_sync.png"/><br/>
+		Figur 20. Synkronisering med telefonens kontaktlista.
+	</p>
+	<p>
+		Det finns funktionalitet för att lägga in och uppdatera kontakterna från applikationen i telefonens kontaktlista, för enkel åtkomst även från den vanliga telefon-menyn. Denna kontaktsynkronisering fungerar så att man lägger till applikationen som ett synkroniserings-konto i Androids lista på källor, ungefär som Gmail och eventuella andra konton.
+	</p>
+	<p>
+		För att aktivera denna synkronisering följer man dessa steg:
+	</p>
+	<ol>
+		<li>Gå in i <i>Inställningar</i> -> <i>Konton och synkronisering</i>.</li>
+		<li>Välj <i>Lägg till konto</i>, och sedan <i>Attentec</i></li>
+		<li>När du lagt till kontot kan du trycka på det för att aktivera eller inaktivera synkronisering av kontakter, och även tvinga fram en synkronisering.</li>
+		<li>För att visa eller gömma de synkroniserade kontakterna från telefonens kontaktlista, kan man kryssa ur <i>Attentec</i> i applikationen <i>Kontakter</i> -> <i>Meny</i> -> <i>Visa</i>.</li>
+	</ol>
+
+
+	<h4>Rättigheter och vad applikationen använder dem till</h4>
+	<p>
+		För att göra vissa saker behöver applikationen rättigheter som användaren måste godkänna vid installation. Detta är en lista på alla rättigheter som applikationen kräver, och varför de krävs och till vad:
+	</p>
+	<h5>Din Plats</h5>
+	<p>Position som skickas till servern och ut till andra användare av applikationen. Om och när detta görs kan ställas in i inställningarna enligt ovan.</p>
+	<h5>Dina personliga uppgifter, dina konton, systemverktyg</h5>
+	<p>Dessa behövs om man vill synkronisera kontaktlistan i applikationen med telefonens kontaktlista <a href="#synkronisering-telefon">enligt ovan</a>. Om man inte ställer in detta används inte dessa rättigheter alls.</p>
+	<h5>Nätverkskommunikation</h5>
+	<p>Används för att synkronisera position och kontaktdata med servern. Hur ofta den synkroniserar olika saker kan ställas in i inställningar.</p>
+	<h5>Ringa telefonnummer direkt</h5>
+	<p>Detta görs när man väljer "Ring" i applikationen.</p>
+
+</div>
+</body>
+</html>

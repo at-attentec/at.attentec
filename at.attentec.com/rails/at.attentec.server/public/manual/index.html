@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<!--
+Copyright (c) 2010 Attentec AB, http://www.attentec.se
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>User Manual Attentec Communication Platform</title>
+	<link rel="stylesheet" href="stylesheets/manual.css" type="text/css" charset="utf-8"/>
+	<script type="text/javascript" charset="utf-8" src="js/linkfixer.js"></script>
+</head>
+<body>
+
+<div id="content">
+	<div id="header">
+		<a href="../users/"><img class="logo" alt="Attentec" src="images/headerlogo.png" title="Attentec" /></a><br/>
+	</div>
+	<h1>User Manual Attentec Communication Platform</h1>
+
+	<p>
+		Attentecs Communication Platform aspires to offer a mobile environment to communicate in. It is best suited for consultants at a company which aspires to constantly have their consultants in the field.
+	</p>
+
+	<p>
+		The platform has the following focus:
+	</p>
+	<ul>
+		<li>Use geographic information to enable efficient collaboration between users</li>
+		<li>Synchronize contact information which later easily can be distributed to people of interest</li>
+	</ul>
+
+
+	<p>
+		The Communication Platform is divided into two parts, one web interface where users kan update their information and one application for Android phones, which synchronizes with the server, and presents the information. The system is described below.
+	</p>
+
+	<h2>System Requirements</h2>
+	<p>
+		To use the system the following is required:
+	</p>
+	<ul>
+		<li>Web browser</li>
+		<li>Android phone with Android version 2.1 or newer</li>
+	</ul>
+
+	<h2>Quick start</h2>
+	<p>
+		Here we give a quick introduction for those who want to get started right away. If you get stuck at any point more information is given further down in the document.
+	</p>
+	<ol>
+		<li>Log in to the web interface <a href="../users/login">at this link</a>.</li>
+		<li>Press on Show at your own name and press "Generate phone key".</li>
+		<li>
+			Download the application to the phone from <a href="../downloads/at.attentec.apk">this link</a>.
+			<br />
+			<img class="download_qr" src="images/headerlogo.png" alt="QR-code for downloading the Android-app"/>
+		</li>
+		<li>Install the application</li>
+		<li>Start the application and log in with your username and phone key (created in list item two).</li>
+	</ol>
+
+
+	<h2>Server</h2>
+	<p>
+		The server is a central unit for storage and provides an interface for accessing the stored information.
+	</p>
+
+	<h3>Create Account</h3>
+	<p>
+		Logging in to the account can be done <a href="../users/login">at this link</a>. A new user can be registered by an admin.
+	</p>
+
+	<p class="image">
+		<img   alt="Login fields" src="images/log_in.png"/><br/>
+		Figure 1. Fields for logging in.
+	</p>
+
+	<p>
+	  When registering a new user, the admin will get the page shown in Figure 2.
+	</p>
+
+
+	<p class="image">
+		<img   alt="Registration form" src="images/create_account.png"/><br />
+		Figure 2. Fields for creating a new user.
+	</p>
+
+	<p>
+	  Some of the information that the user (or admin) chooses to supply will be used when generating the a vCard (see further down) och business cards for the web (see further down).
+	</p>
+
+	<h3>Log in</h3>
+	<p>
+		Logging in is done on the page in Figure 1. Note that this password differs from the one used to log in with the phone.
+	</p>
+
+	<h3>Show contacts</h3>
+	<p>
+		Below in Figure 3, a list of all users in the contact database is shown.
+	</p>
+
+	<p class="image">
+		<img   alt="List with users" src="images/contacts.png"/><br />
+		Figure 3. Contacts registered in the contact database.
+	</p>
+
+	<p>
+		The list contains concise information about all users and by clicking the plus sign to the left on each row one can choose to expand the information for each user to get access to more detailed information.
+	</p>
+
+	<p>
+		If one chooses to click on the link "Show" at other users, information similar to that of figure 4 is shown.
+	</p>
+
+	<p class="image">
+		<img  alt="Information about a usr" src="images/view_info.png"/><br />
+		Figure 4. Information about chosen user.
+	</p>
+
+	<p>
+		If one clicks on the link "Show" on their own row, even more detailed information is shown. The information that is new here is the phone key. How this key is used is explained further down.
+	</p>
+
+	<p class="image">
+		<img  alt="Information about yourself" src="images/view_personal_info.png"/><br />
+		Figure 5. Information about yourself.
+	</p>
+
+	<h3>Edit information</h3>
+
+	<p>
+		When editing information everything except coordinates and phone key can be changed. The coordinates are updated when the telephone synchronizes with the server. To see how the phone key is created, look further down. It is also possible to choose if it should be possible to access a virtual business card with name and phone number. The business card is linked from the page in Figur 5, and is accessible without logging in.
+	</p>
+
+	<p class="image">
+		<img  alt="Editing a users information" src="images/edit_info.png"/> <br />
+		Figure 6. Fields for editing a users information.
+	</p>
+
+	<h3><a id="telefonnyckel"></a>phone key</h3>
+	<p>
+		To log in with the application a phone key is needed, which can be created quickly and easily, and can be deactivated with links on the detailed view page for each person, as displayed in Figure 7. When clicking on "Generate new phone key" a new (random) key is generated for the user. It is also possible to remove the possibility to log in completely by clicking "Remove phone key".
+	</p>
+
+	<p>
+		To make it easier to log in with the phone key it is also available as a QR-code which can be scanned by the phone with the program "Barcode Scanner" if it is installed. Barcode Scanner is free of charge and is available for download on Android Market (follow this link from the phone: <a href="market://details?id=com.google.zxing.client.android">market://details?id=com.google.zxing.client.android</a> or search for "barcode scanner" on Android Market.
+	</p>
+
+	<p class="image">
+		<img  alt="QR-code for telephone key" src="images/qr_key.png"/><br />
+		Figure 7. Interface for generating and reading phone key.
+	</p>
+
+	<h3>Business Card</h3>
+	<p>
+		It is possible to direct user to a business card in the form of a webpage that has more detailed information as well as a link to a vCard format of the same information. The QR-code that can be seen in Figure 8 can be scanned with the program Barcode Scanner, or similar applications on other platforms. The idea is that it can be read both from the webpage and from a printed business card.
+	</p>
+
+	<p class="image">
+		<img  alt="QR-code for business cards" src="images/qr_business_card.png"/><br />
+		Figure 8. Key for scanning business cards and link to business cards both for web and download.
+	</p>
+
+	<h2>Client</h2>
+	<p>
+		The application for the Android platform uses the contact database that is available at the server. Roughly it is divided into two parts, one contact list and one map function where the user can see where the other users are.
+	</p>
+
+	<h3>Installation</h3>
+	<p>
+		The installation of the application is performed in five steps:
+	</p>
+	<ol>
+		<li>Configure the pohone to allow applications which are not from Android market according to the following steps:
+				<ul>
+					<li>Go to "Settings"</li>
+					<li>Go to "Applications"</li>
+					<li>Check "Unknown sources"</li>
+				</ul>
+		</li>
+		<li>If you want to report your position (recommended) the GPS-sensor can be activated as follows:
+			<ul>
+				<li>Go to "Settings"</li>
+				<li>Go to "Location"</li>
+				<li>Check "Use GPS-satellites"</li>
+			</ul>
+			When GPS-satellites are not available, base stations will be used if they are accurate enough (which is most often not the case).
+		</li>
+		<li>Download the application with your phone from <a href="../downloads/at.attentec.apk">this link</a>. If the application "Barcode Scanner" is installed it can be used to scan this QR-code: <br/>
+		  <img class="download_qr" src="images/headerlogo.png" alt="QR-code for downloading the Android-app"/>
+		</li>
+		<li>When it is downloaded, click on it in the list.</li>
+		<li>Press install and then Open.</li>
+	</ol>
+
+	<h3>Log in</h3>
+
+	<p class="image">
+		<img  alt="Login-screen for the Android application" src="images/english/android_login.png"/><br />
+		Figure 9. Login-screen for the Android application.
+	</p>
+
+
+	<p>
+		In figure 9 the login-screen for the Android-application is shown. A phone key is needed to login here. This can be generated through the web interface, see <a href="#telefonnyckel">above</a>. What may be new here is the button saying "Scan key". To scan this key the application "Barcode Scanner" has to be installed. With the help of this application the QR-code from the web interface can be scanned. This code is shown when information about the logged in user is shown in the web interface.
+	</p>
+
+	<h3>Contact List</h3>
+
+	<p>
+		In figure 10 the contact list in the Android-application is shown. It is updated according to the interval set in the configurations (see further down). Aside from name and telephone number, it also shows what the user is doing at the moment, if the user has supplied such information, and also the users availability. The users availability is also shown with a colored circle. If a contact has logged out or not contacted the server for three hours the user is shown as offline.
+	</p>
+
+	<p class="image">
+		<img  alt="Contact List in the Android-application" src="images/english/android_contacts.png"/><br />
+		Figure 10. Contact list in the Android-application.
+	</p>
+
+
+	<h4>Update custom status</h4>
+	<p>
+		To keep the other users updated a status can be set to what the user is doing for the moment. The update is perfomed by clicking the text field under "My Status". This status-update reaches the other users when their application updates the contact list. How often this occurs depends on what configuration they have. For the status to remain set, the programs background service has to be kept running, see <a href="#avstangning">below</a> for information about how to keep it running when the application is turned off.
+	</p>
+
+	<p class="image">
+		<img  alt="Update status in the Android-application" src="images/english/android_status_update.png"/><br />
+		Figure 11. Fields for updating custom status. This is shown in the contact list for the other users of the application.
+	</p>
+
+	<h4>Update status</h4>
+	<p>
+		With the menu in figure 12 one can set the status one has for the moment. The menu is shown when pressing on the circle to the right of "My Status". This availability is indicated both with a circle and a line of text. Both are shown for other users in the contact list. The colored circle is also shown on the map. For the status to remain set, the programs background service has to be kept running, see <a href="#avstangning">below</a> for information about how to keep it running when the application is turned off.
+	</p>
+
+	<p class="image">
+		<img  alt="Update availability in the Android-application" src="images/english/android_availability.png"/><br />
+		Figure 12. Fields for updating status. This is shown in the contact list for the other users.
+	</p>
+
+
+	<h4>Quick Contact</h4>
+	<p>
+		A window for easily contacting the other users. The contact options shown depend on how much information the contact has chosen to supply.
+	</p>
+
+	<p class="image">
+			<img  alt="Contact a contact in the contact list" src="images/english/android_contact_options.png"/><br />
+			Figure 13. Different ways to contact the chosen contact.
+	</p>
+
+	<h4>Show Detailed Info</h4>
+	<p>
+		A window for displaying detailed info. This window is accesed from the window for quick contacts which is illustrated in figure 13. If telephone number, e-mail and linkedin respectively is supplied it will be shown as links which are clickable to allow for suitable interaction.
+	</p>
+
+	<h4>Sort contacts</h4>
+	<p>
+		Since it sometimes is of interest to sort the contacts in different ways depending on the situation, there is a menu for the contact list which offers four ways of sorting the contact (see Figure 14):
+	</p>
+	<ul>
+		<li>First name</li>
+		<li>Last name</li>
+		<li>Distance</li>
+		<li>Contacted at</li>
+	</ul>
+	<p>
+		If physical interaction with other users is desired, sorting by distance may be useful.
+	</p>
+	<p class="image">
+		<img  alt="Sort contacts in different ways in the Android-application" src="images/english/android_contact_sorting.png"/><br />
+		Figure 14. Different ways of sorting the contacts.
+	</p>
+
+	<h4>Contacts within a certain radius</h4>
+	<p>
+		To gain access to those who only are within a certain radius, Radius can be selected in the menu. This starts an activity which has a slider for setting the desired radius. The contact list below will then only show those who are in the given radius. Each contact can be checked and unchecked, to later contact all checked with sms or email.
+	</p>
+
+
+	<p class="image">
+		<img  alt="Contacts within radius" src="images/english/android_contact_in_radius.png"/><br />
+		Figur 15. Contacts within radius.
+	</p>
+
+	<h3>Close to you</h3>
+
+	<p>
+		This is the other large function in the Android-application. It uses the Google API for Google maps and displays bubbles where the other users currently are. If a user has not been logged in for a while the coordinate is deemed to be outdated and is no longer shown on the map. Because of this the view of where the other users are is always updated. In each bubble a picture, the users name and a circle indicating status is displayed. For information about what status each color is representing see figure 12.
+	</p>
+
+
+	<p class="image">
+		<img  alt="Close To You" src="images/english/android_close_to_you.png"/><br />
+		Figure 16. Close To You.
+	</p>
+
+	<h4>Quick Contact</h4>
+
+	<p>
+		In the same way as in the contact list one can easily contact a user on the map by clicking on its bubble. This view is shown in Figure 17.
+	</p>
+
+	<p class="image">
+			<img  alt="Contact a contact in Close To You" src="images/english/android_close_to_you_contact.png"/><br/>
+			Figure 17. Different ways of contacting a user.
+	</p>
+
+	<h3>Shutting down background service</h3>
+	<p>For others to see you as online, or which status you have set, the applications background service has to be running in the background. This is accomplished by "closing" the program with the "Home"-button, which has a little house as a symbol. If one wishes to completely close the program (and be shown as offline to others), one closes the program by using the "Back"-button, which has a small arrow as a symbol.</p>
+
+	<h3>Preferences</h3>
+	<p>
+	 	The Android-application can be configured by each user. The things that can be varied are how often and if some things are updated. This is mainly suitable for saving battery and costs since data traffic can be more expensive when abroad. Turning off the sending of location can be desirable when one does not want to show where one is. Per default, the phone location is sent to the server only between the working hours of 8 to 17. These times can also be changed in the application.
+	</p>
+
+	<h4><a id="updates"></a>Updates</h4>
+	<p class="image">
+			<img  alt="Configurations in the Android-application" src="images/english/android_settings.png"/><br />
+			Figure 18. Configuration of how often different updates should occur and whether location should be sent or not.
+	</p>
+	<p>
+		For the application to have access to new information it updates in defined intervals. These intervals can be varied by going to Preferences through the menu. The menu is accesed by clicking the button Menu on the phone. In figure 18 above the intervals that can be varied are shown. It also says wether location is updated or not. The options available are:
+	</p>
+	<ul>
+		<li>Interval for fetching contacts: How often the whole list with contacts is retrieved from the server.</li>
+		<li>Interval for updating position and status: How often others positions and statuses are retrieved from server.</li>
+		<li>Interval for updating own location: How often the own location is retrieved from GPS and sent to server.</li>
+		<li>Send location after: After what time of day the own location will be sent to server.</li>
+		<li>Send location until: Until what time of day the own location will be sent to server.</li>
+		<li>Sending location: If the own location is sent to server and thereby other users. If this is not checked GPS will not be used.</li>
+		<li>Timeout for GPS-fix: How long the phone activates the GPS-sensor for each location retrieval. This setting has priority over accuracy below.</li>
+		<li>Accuracy requirement for GPS: The number of meters the phone needs in accuracy before shutting down the GPS.</li>
+		<li>URL to server: Only to be changed when the address to the server is changed. Normally not needed.</li>
+	</ul>
+
+	<h4>Background services</h4>
+	<p class="image">
+		<img  alt="Background service in the Android-application" src="images/english/android_services.png"/><br/>
+		Figur 19. List of background services which are running on the phone.
+	</p>
+
+	<p>
+		To handle synchronization and updates for the application a background service is used. This can be turned of seperately from the application by using the menu-button to completely shut down all the contact with the server.
+	</p>
+
+	<p>
+	  This can be desirable when travelling abroad where roaming fees might be substantial. Out of a battery point of view it is also preferable to have as little running as possible. A first action for increasing battery can be changing the applications configurations according to the paragraph above. The idea is that this service always should be turned on during working hours. It is therefore recommended to not turn it off.
+	</p>
+	<p>
+		If one on the other hand wants to have the background service running, but not the application (for example to show location and status to others), one can simply hide the application by pressing the "Home"-button.
+	</p>
+
+	<h4><a id="synkronisering-telefon"></a>Synchronization with the phone contact list</h4>
+
+	<p class="image">
+		<img  alt="Synchronization with the phone contact list" src="images/english/android_contact_sync.png"/><br/>
+		Figur 20. Synchronization with the phone contact list.
+	</p>
+	<p>
+		There is functionality for loading and updating the contacts from the application to the phone contact list, for ease of access even from the normal phone view. This contact synchronization works by adding the application as a synchronization-account in Androids list of contact sources. This works similarly to adding a Gmail account or other accounts.
+	</p>
+	<p>
+		To activate this synchronization follow these steps:
+	</p>
+	<ol>
+		<li>Go to <i>Settings</i> -> <i>Accounts &amp; synch</i>.</li>
+		<li>Choose <i>Add account</i>, and then <i>Attentec</i></li>
+		<li>When the account is added it can be pressed to activate or deactivate synchronization of contacts. A forced synchronization can also be performed.</li>
+		<li>To show or hide the synchronized contacts from the phone contact list, <i>Attentec</i> can be unchecked in the application <i>Contacts</i> -> <i>Menu</i> -> <i>Show</i>.</li>
+	</ol>
+
+	<h4>Permissions and what the application uses them for</h4>
+	<p>
+		To do certain things the application needs permissions which the user has to approve at installation. Below follows a list of all permissions the application requires, why they are needed and for what:
+	</p>
+
+	<h5>Your Position</h5>
+	<p>Position which will be sent to server and to other users of the application. If and when this is done is set in the configuration according to the section <a href="#updates">Updates</a>.</p>
+	<h5>Your personal information, your accounts, and system tools</h5>
+	<p>These are needed if one wishes to synchronize the contact list in the application with the telephones contact list according to <a href="#synkronisering-telefon">above</a>. If this is not configured they will not be used at all.</p>
+	<h5>Network Communication</h5>
+	<p>Used for synchronizing position and contact data with the server. How often it synchronizes different things can be set in configurations.</p>
+	<h5>Call telephone number directly</h5>
+	<p>This is used when choosing "Call" in the application.</p>
+
+</div>
+</body>
+</html>

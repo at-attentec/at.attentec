@@ -1,0 +1,107 @@
+@media screen { /*To separate screen from print*/
+  html {
+    background-color: #DDD;
+  }
+  body{
+/*    margin: 20px auto;
+    border: 1px solid #999;
+    padding: 30px;
+*/  }
+  h1 {
+    margin-top: 40px;
+  }
+  #content {
+    border: 1px solid #999;
+  }
+}
+@media print {
+  h1 {
+    margin-top: 0px;
+  }
+  body {
+    margin: auto;
+    padding: 0px;
+  }
+  html {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+body {
+  font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#content {
+    background-color: #FFF;
+    width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+}
+
+#header {
+    float: right;
+    text-align: right;
+    border: 1px solid #CCC;
+    padding: 7px;
+    background-color: #FFF;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+h1 {
+  border-bottom: 1px solid #CCC;
+  margin-top: 0px;
+  margin-bottom: 70px;
+  font-size: 26px;
+}
+
+
+h2 {
+  border-bottom: 1px solid #999;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 16px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+p {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+p.image {
+  font-style: italic;
+  text-align: center;
+}
+
+img {
+  padding: 5px;
+  border: 1px dashed #999;
+}
+
+img.logo {
+  border: 0px;
+  padding: 0px;
+}

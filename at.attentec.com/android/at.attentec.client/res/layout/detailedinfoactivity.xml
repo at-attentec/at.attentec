@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+	android:id="@+id/listBackground"
+	android:background="#FFFFFFFF"
+	android:padding="5dp">
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/missing"
+		android:paddingRight="4sp"
+		android:id="@+id/detailed_photo" />
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/first_name_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+
+			<TextView
+				android:id="@+id/last_name_field"
+				android:paddingLeft="4sp"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+
+		<!-- Phone and address -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<LinearLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="0dp"
+				android:layout_weight="1"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/phone_label"
+					android:textSize="16sp"
+					android:text="@string/phone"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#FF000000"
+					android:paddingRight="5dp" />
+
+				<TextView
+					android:id="@+id/phone_number_field"
+					android:textSize="16sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#FF000000" />
+			</LinearLayout>
+			<LinearLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<!-- Online indicator -->
+				<ImageView
+					android:layout_width="15dp"
+					android:layout_height="15dp"
+					android:src="@drawable/missing"
+					android:paddingRight="4sp"
+					android:gravity="right"
+					android:id="@+id/status_icon" />
+				<!-- Status text -->
+				<TextView
+					android:id="@+id/status_text"
+					android:textSize="10sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:textColor="#FF000000"
+					android:paddingRight="10dp" />
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/address_label"
+				android:textSize="16sp"
+				android:text="@string/address"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+			<LinearLayout
+				xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				<!-- Address row 2 -->
+				<TextView
+					android:id="@+id/address_field"
+					android:textSize="16sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#FF000000" />
+
+				<!-- Address row 3 -->
+				<LinearLayout
+					xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingBottom="15dp"
+					android:orientation="horizontal">
+					<!-- Zipcode -->
+					<TextView
+						android:id="@+id/zipcode_field"
+						android:textSize="16sp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:paddingRight="5dp"
+						android:textColor="#FF000000" />
+
+					<!-- City -->
+					<TextView
+						android:id="@+id/city_field"
+						android:textSize="16sp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="#FF000000" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<!-- Email -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+
+			<TextView
+				android:id="@+id/email_label"
+				android:textSize="16sp"
+				android:text="@string/email"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+
+			<TextView
+				android:id="@+id/email_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+
+		<!-- Degree -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/degree_label"
+				android:textSize="16sp"
+				android:text="@string/degree"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+
+			<!-- First element on first row for each contact -->
+			<TextView
+				android:id="@+id/degree_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+
+		<!-- Title -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/title_label"
+				android:textSize="16sp"
+				android:text="@string/title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+
+			<!-- First element on first row for each contact -->
+			<TextView
+				android:id="@+id/title_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+
+		<!-- Linkedin -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/linkedin_label"
+				android:textSize="16sp"
+				android:text="@string/linkedin"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+
+			<!-- First element on first row for each contact -->
+			<TextView
+				android:id="@+id/linkedin_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+
+		<!-- Client -->
+		<LinearLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/client_label"
+				android:textSize="16sp"
+				android:text="@string/client"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000"
+				android:paddingRight="5dp" />
+
+			<!-- First element on first row for each contact -->
+			<TextView
+				android:id="@+id/client_field"
+				android:textSize="16sp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF000000" />
+		</LinearLayout>
+		<!-- Compass view -->
+		<view
+			class="com.attentec.DetailedInfoActivity$CompassView"
+			android:id="@+id/compass"
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:background="#FF000000" />
+		<TextView
+			android:id="@+id/distance_field"
+			android:textSize="12sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#BB000000" />
+
+		<!-- Custom status. Used? -->
+		<TextView
+			android:id="@+id/status_custom_message"
+			android:textSize="12sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#BB000000" />
+	</LinearLayout>
+</LinearLayout>

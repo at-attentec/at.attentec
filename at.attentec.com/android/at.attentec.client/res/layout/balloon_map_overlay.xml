@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	android:orientation="horizontal" 
+	android:paddingBottom="20dip"
+	android:paddingLeft="10dip" 
+	android:minWidth="50dip" 
+	android:id="@+id/balloon_main_layout"
+	android:background="@drawable/balloon_overlay_bg_selector" 
+	android:paddingTop="0dip"
+	android:paddingRight="10dip">
+
+	<LinearLayout 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		android:layout_weight="1"
+		android:paddingTop="5dip" 
+		android:gravity="center_vertical"
+		
+		android:id="@+id/balloon_inner_layout">
+		<!-- Photo -->
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/missing" 
+			android:paddingBottom="10sp"
+			android:paddingRight="10sp"
+			android:id="@+id/balloon_photo"/>
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/status_offline_circle" 
+			android:paddingTop="10sp"
+			android:paddingRight="10sp"
+			android:id="@+id/balloon_status_indicator"/>
+		<!-- First name and last name initial -->
+		<TextView 
+			
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent" 
+			android:id="@+id/balloon_item_title"
+			android:text="balloon_item_title" 
+			android:textSize="16dip"
+			android:textColor="#FF000000"/>
+  </LinearLayout>
+</LinearLayout>
